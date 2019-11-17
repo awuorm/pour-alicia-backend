@@ -16,7 +16,7 @@ exports.up = function(knex) {
         .notNullable()
         .unique();
       table.string("author").notNullable();
-      table.string("storybody").notNullable();
+      table.text("storybody").notNullable();
     })
     .createTable("storiesTag", table => {
       table.increments();
