@@ -7,7 +7,7 @@ module.exports = {
 }
 
 function find() {
-    return db("users");
+    return db("stories");
 }
 
 function add(user) {
