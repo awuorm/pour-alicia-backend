@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/register", handleUserRegistration);
 router.post("/login", handleUSerLogin);
-router.get("/users", handleUsersGet);
+router.get("/stories", handleUsersGet);
 
 function handleUsersGet(req, res) {
   db.find()
