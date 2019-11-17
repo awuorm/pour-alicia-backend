@@ -7,6 +7,19 @@ const router = express.Router();
 
 router.post("/register", handleUserRegistration);
 router.post("/login", handleUSerLogin);
+router.get("/users", handleUsersGet);
+
+function handleUsersGet(req, res) {
+  db.find()
+    .then(data => {
+      console.log(data);
+      res.status(200).json(data);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({ errorMessage: error });
+    });
+}
 
 function handleUSerLogin(req, res) {
   const { username, password } = req.body;
@@ -27,17 +40,16 @@ function handleUSerLogin(req, res) {
 }
 
 function generateToken(user) {
-    const payload = {
-        subject: user.id,
-        username: user.username
+  const payload = {
+    subject: user.id,
+    username: user.username
+  };
+  const options = {
+    expiresIn: "1d"
+  };
 
-    }
-    const options = {
-        expiresIn: "1d"
-    }
-    
-    const result = jwt.sign(payload,process.env.SECRET,options);
-    return result;
+  const result = jwt.sign(payload, process.env.SECRET, options);
+  return result;
 }
 
 function handleUserRegistration(req, res) {

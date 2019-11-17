@@ -2,7 +2,12 @@ const db = require("../data/dbConfig");
 
 module.exports = {
     add,
-    findBy
+    findBy,
+    find
+}
+
+function find() {
+    return db("users");
 }
 
 function add(user) {
