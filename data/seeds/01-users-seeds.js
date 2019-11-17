@@ -1,9 +1,6 @@
 
 exports.seed = function(knex) {
-  // Deletes ALL existing entries
-  return knex('stories').del()
-    .then(function () {
-      // Inserts seed entries
+
       return knex('stories').insert([
         {   id:1,
           title:"Is There Anyone Like Lorem Ipsum?",
@@ -12,5 +9,4 @@ exports.seed = function(knex) {
       }
         
       ]);
-    });
 };
