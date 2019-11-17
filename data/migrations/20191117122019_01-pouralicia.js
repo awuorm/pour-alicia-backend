@@ -33,7 +33,7 @@ exports.up = function(knex) {
       table.integer("minAge").notNullable();
       table.integer("maxAge").notNullable();
       table
-        .string("Description")
+        .string("description")
         .notNullable()
         .unique();
     })
